@@ -1,6 +1,6 @@
 const Product = require('./model/product')
 
-class FakeDb {
+class SampleDb {
 
   constructor() {
     this.products = [
@@ -80,4 +80,4 @@ class FakeDb {
   }
 }
 
-module.exports = FakeDb
+module.exports = SampleDb

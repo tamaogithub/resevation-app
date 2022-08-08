@@ -1,7 +1,7 @@
 const express = require('express')
 const mongoose = require('mongoose')
-const config = require('./config/index')
-const FakeDb = require('./fake-db')
+const config = require('./config/dev')
+const SampleDb = require('./sample-db')
 
 const productRouters = require('./routers/products')
 const path = require('path')
@@ -9,9 +9,9 @@ const path = require('path')
 mongoose.connect(config.DB_URI).then(
   () => {
     if(process.env.NODE_ENV !== 'prodction') {
-      const fakeDb = new FakeDb()
+      const sampleDb = new SampleDb()
       //dev環境でDBの初期化が必要になったときだけコメントアウトする
-      // fakeDb.initDb()
+      sampleDb.initDb()
     }
   }
 )
@@ -21,7 +21,7 @@ const app = express()
 app.use('/api/v1/products',productRouters)
 
 if(process.env.NODE_ENV === 'prodction') {
-  const appPath = path.join( __dirname, '../..', 'dist' , 'resevation-app')
+  const appPath = path.join( __dirname, '..', 'dist' , 'resevation-app')
   app.use(express.static(appPath))
   app.get("*", function(req, res){
     res.sendFile(path.resolve(appPath, 'index.html'))
@@ -39,10 +39,3 @@ const PORT = process.env.PORT || '3001'
 app.listen(PORT, function() {
   console.log('I am running!')
 })
-
-
-
-
-
-
-
