@@ -13,6 +13,7 @@ export class ProductListComponent implements OnInit {
 
   ngOnInit() {
     const productsObservable = this.productService.getProducts()
+    
     productsObservable.subscribe(
       (data) => {
         this.products = data

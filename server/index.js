@@ -1,6 +1,6 @@
 const express = require('express')
 const mongoose = require('mongoose')
-const config = require('./config/dev')
+const config = require('./config')
 const SampleDb = require('./sample-db')
 
 const productRouters = require('./routers/products')
@@ -11,7 +11,7 @@ mongoose.connect(config.DB_URI).then(
     if(process.env.NODE_ENV !== 'prodction') {
       const sampleDb = new SampleDb()
       //dev環境でDBの初期化が必要になったときだけコメントアウトする
-      sampleDb.initDb()
+      //sampleDb.initDb()
     }
   }
 )
