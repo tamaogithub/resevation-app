@@ -7,12 +7,12 @@ export class ProductService {
 
   constructor(private http: HttpClient) { }
 
-  //プロダクト一覧のObserverを受け取る
+  //プロダクト一覧のObservableを登録する
   getProducts(): Observable<any>{
     return this.http.get('/api/v1/products')
   }
 
-  //プロダクト詳細のObserverを受け取る
+  //プロダクト詳細のObservableを登録する
   getProductById(productId: string): Observable<any>{
     return this.http.get('/api/v1/products/' + productId)
   }
