@@ -1,11 +1,15 @@
 {
   "name": "resevation-app",
   "version": "0.0.0",
+  "engine": {
+    "node": "14.18.",
+    "npm": "8.11.0"
+  },
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "npm run start --prefix src/server",
     "start-dev": "ng serve --proxy-config proxy.conf.json",
-    "build": "ng build",
+    "build": "ng build --configuration production",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
