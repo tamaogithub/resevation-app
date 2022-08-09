@@ -1,3 +1,3 @@
 module.exports = {
-  DB_URI : ProgressEvent.env.DB_URI
+  DB_URI : process.env.DB_URI
 }
