@@ -12,7 +12,7 @@ import { LocationStrategy, PlatformLocation, Location, DOCUMENT } from '@angular
 })
 export class AppComponent {
   private _router!: Subscription;
-  @ViewChild(NavbarComponent)navbar!: NavbarComponent;
+  @ViewChild(NavbarComponent, {static: false})navbar!: NavbarComponent;
   constructor( private renderer : Renderer2, private router: Router, @Inject(DOCUMENT,) private document: any, private element : ElementRef, public location: Location) {}
 
   ngOnInit() {
@@ -46,6 +46,15 @@ export class AppComponent {
         var body = document.getElementsByTagName('body')[0];
         body.classList.add('ie-background');
     }
-
-}
+  }
+  removeFooter() {
+    var titlee = this.location.prepareExternalUrl(this.location.path());
+    titlee = titlee.slice( 1 );
+    if(titlee === 'signup' || titlee === 'nucleoicons'){
+        return false;
+    }
+    else {
+        return true;
+    }
+  }
 }
