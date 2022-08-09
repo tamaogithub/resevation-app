@@ -20,13 +20,13 @@ const app = express()
 
 app.use('/api/v1/products',productRouters)
 
-if(process.env.NODE_ENV === 'prodction') {
+
   const appPath = path.join( __dirname, '..', 'dist' , 'resevation-app')
   app.use(express.static(appPath))
   app.get("*", function(req, res){
     res.sendFile(path.resolve(appPath, 'index.html'))
   })
-}
+
 
 
 
