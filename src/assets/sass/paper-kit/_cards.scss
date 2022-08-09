@@ -1,5 +1,5 @@
 .card{
-    border-radius: $border-radius-extreme;
+    border-radius: $border-radius-large;
     box-shadow: 0 6px 10px -4px rgba(0, 0, 0, 0.15);
     background-color: #FFFFFF;
     color: $card-black-color;
@@ -20,6 +20,11 @@
       -webkit-transform: translateY(-10px);
       -ms-transform: translateY(-10px);
       -moz-transform: translateY(-10px);
+    }
+
+    .card-img-top{
+      border-top-left-radius: $border-radius-large;
+      border-top-right-radius: $border-radius-large;
     }
 
     &.card-plain{
